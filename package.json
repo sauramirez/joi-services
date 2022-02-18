@@ -1,0 +1,28 @@
+{
+  "name": "joi-services",
+  "version": "0.1.0",
+  "description": "Joi service support",
+  "repository": "git://github.com/sauramirez/joi-services",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "keywords": [
+    "services",
+    "validation"
+  ],
+  "scripts": {
+    "test": "lab -L"
+  },
+  "author": "Essau Ramirez <essau@three-dimensional.space",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "joi": "^17.6.0"
+  },
+  "devDependencies": {
+    "@bekindsoft/eslint-config-bekind": "^0.2.1",
+    "@hapi/code": "^8.0.7",
+    "@hapi/eslint-plugin": "5.x.x",
+    "@hapi/lab": "^24.5.1"
+  }
+}
