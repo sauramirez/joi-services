@@ -1,6 +1,6 @@
 {
   "name": "joi-services",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Joi service support",
   "repository": "git://github.com/sauramirez/joi-services",
   "main": "lib/index.js",
@@ -23,6 +23,8 @@
     "@bekindsoft/eslint-config-bekind": "^0.2.1",
     "@hapi/code": "^8.0.7",
     "@hapi/eslint-plugin": "5.x.x",
-    "@hapi/lab": "^24.5.1"
+    "@hapi/lab": "^24.5.1",
+    "sequelize": "^6.16.1",
+    "sqlite3": "^5.0.2"
   }
 }
