@@ -12,7 +12,7 @@
     "validation"
   ],
   "scripts": {
-    "test": "lab -L"
+    "test": "lab"
   },
   "author": "Essau Ramirez <essau@three-dimensional.space",
   "license": "BSD-3-Clause",
