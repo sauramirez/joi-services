@@ -41,7 +41,7 @@ class TestSchemaValidationService extends JoiService {
 class TestNotImpementedService extends JoiService {}
 
 class TestPrehook extends JoiService {
-  preHook() {
+  preProcess() {
     return { transaction: true };
   }
 
@@ -51,7 +51,7 @@ class TestPrehook extends JoiService {
 }
 
 class TestAsyncProcess extends JoiService {
-  preHook() {
+  preProcess() {
     return { transaction: true };
   }
 
@@ -61,7 +61,7 @@ class TestAsyncProcess extends JoiService {
 }
 
 class TestAsyncService extends JoiService {
-  async preHook() {
+  async preProcess() {
     return { transaction: true };
   }
 
@@ -69,7 +69,7 @@ class TestAsyncService extends JoiService {
     return options
   }
 
-  async postHook(options) {}
+  async postProcess(options) {}
 }
 
 
@@ -102,25 +102,19 @@ describe('JoiService', () => {
     expect(run).to.throw()
   })
 
-  it('should return prehook options', () => {
+  it('should return preProcess options', () => {
 
     const result = TestPrehook.execute();
     expect(result.transaction).to.equal(true);
   })
 
-  it('should return the prehook options in an async process', () => {
-
-    const result = TestPrehook.execute();
-    expect(result.transaction).to.equal(true);
-  })
-
-  it('should return the prehook options in an async process', async () => {
+  it('should return the preProcess options in an async process', async () => {
 
     const result = await TestPrehook.execute();
     expect(result.transaction).to.equal(true);
   })
 
-  it('should return the prehook options in an async service', async () => {
+  it('should return the preProcess options in an async service', async () => {
 
     const result = await TestAsyncService.execute();
     expect(result.transaction).to.equal(true);

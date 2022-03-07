@@ -73,28 +73,28 @@ await AcceptInviteService.execute({
 
 ## LifeCycle Hooks
 
-### `JoiService.preHook() -> Object`
+### `JoiService.preProcess() -> Object`
 Runs before the `.process` function is invoked and passes the object returned to the process.
 
 ### `JoiService.process(options)`
 
-- `options` The options returned by the prehook handler
+- `options` The options returned by the preprocess handler
 
-### `JoiService.postHook(options)`
-After the process gets executed, the options generated in the preHook function are passed to the
-postHook handler alongside with any errors that occurred during the process invokation.
+### `JoiService.postProcess(options)`
+After the process gets executed, the options generated in the preProcess function are passed to the
+postProcess handler alongside with any errors that occurred during the process invokation.
 
-- `options` The options returned by the prehook handler
+- `options` The options returned by the preprocess handler
 - `[options.err]` Defined if an error occurred during processing
 
 ```js
 class SequelizeService extends JoiService {
-  async preHook() {
+  async preProcess() {
     const transaction = await sequelize.transaction();
     return { transaction };
   }
 
-  async postHook({ transaction, err }) {
+  async postProcess({ transaction, err }) {
     if (err) {
       // rollback transaction
       await transaction.rollback();
