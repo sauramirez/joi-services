@@ -40,6 +40,39 @@ class TestSchemaValidationService extends JoiService {
 
 class TestNotImpementedService extends JoiService {}
 
+class TestPrehook extends JoiService {
+  preProcess() {
+    return { transaction: true };
+  }
+
+  process(options) {
+    return options
+  }
+}
+
+class TestAsyncProcess extends JoiService {
+  preProcess() {
+    return { transaction: true };
+  }
+
+  async process(options) {
+    return options
+  }
+}
+
+class TestAsyncService extends JoiService {
+  async preProcess() {
+    return { transaction: true };
+  }
+
+  async process(options) {
+    return options
+  }
+
+  async postProcess(options) {}
+}
+
+
 describe('JoiService', () => {
   it('should return the processed data', () => {
 
@@ -67,5 +100,23 @@ describe('JoiService', () => {
       TestNotImpementedService.execute();
     }
     expect(run).to.throw()
+  })
+
+  it('should return preProcess options', () => {
+
+    const result = TestPrehook.execute();
+    expect(result.transaction).to.equal(true);
+  })
+
+  it('should return the preProcess options in an async process', async () => {
+
+    const result = await TestPrehook.execute();
+    expect(result.transaction).to.equal(true);
+  })
+
+  it('should return the preProcess options in an async service', async () => {
+
+    const result = await TestAsyncService.execute();
+    expect(result.transaction).to.equal(true);
   })
 });
