@@ -32,7 +32,15 @@ class TestSchemaValidationService extends JoiService {
     val: Joi.number().integer().positive().required()
   })
 
-  process() {
+  /**
+   * @typedef {Object} ValidationType
+   * @property {number} val
+  */
+
+  /**
+   * @param {ValidationType} data
+  */
+  process(data) {
 
     return 1;
   }

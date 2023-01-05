@@ -6,9 +6,8 @@ module.exports = {
     '@bekindsoft/eslint-config-bekind'
   ],
   parserOptions: {
-    ecmaVersion: 12  // set to 13 when the latest hapi lab gets released
+    ecmaVersion: 13
   },
   rules: {
   }
 };
-
