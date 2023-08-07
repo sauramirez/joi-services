@@ -1,6 +1,6 @@
 {
   "name": "joi-services",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Joi service support",
   "repository": "git://github.com/sauramirez/joi-services",
   "main": "lib/index.js",
